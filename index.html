@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srinjoy Som - Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: url('wiwi.PNG') no-repeat center center fixed;
+      background-size: cover;
+      color: #f4f4f9;
+      overflow-x: hidden;
+    }
+
+    .header-container {
+      position: relative;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      text-align: center;
+      border-bottom: 3px solid #63675d;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+    }
+
+    .profile-photo {
+      position: absolute;
+      left: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #63675d;
+      box-shadow: 0 0 20px rgba(99, 103, 93, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-photo:hover {
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .header-content {
+      display: inline-block;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #63675d;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.3rem;
+      color: #f4f4f9;
+    }
+
+    .section-container {
+      display: flex;
+      margin: 30px 0;
+      min-height: 500px;
+    }
+
+    .section-headings {
+      width: 220px;
+      margin-left: auto;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 20px 0 0 20px;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+    }
+
+    .section-headings button {
+      display: block;
+      width: 100%;
+      padding: 15px 25px;
+      margin: 12px 0;
+      background: rgba(99, 103, 93, 0.2);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      text-align: right;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-headings button:hover {
+      background: rgba(99, 103, 93, 0.3);
+      transform: translateX(-5px);
+    }
+
+    .section-headings button.active {
+      background: rgba(99, 103, 93, 0.8);
+      color: white;
+      transform: translateX(-10px);
+      box-shadow: 0 4px 15px rgba(99, 103, 93, 0.3);
+    }
+
+    .section-content {
+      flex-grow: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section {
+      position: absolute;
+      width: calc(100% - 40px);
+      padding: 30px;
+      margin: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      transform: translateX(100%);
+      transition: transform 0.5s ease-out, opacity 0.3s ease;
+      box-sizing: border-box;
+      height: calc(100% - 40px);
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      backdrop-filter: blur(5px);
+    }
+
+    section.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    section h2 {
+      text-align: center;
+      color: #63675d;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    section ul li {
+      background: rgba(99, 103, 93, 0.1);
+      margin: 10px 0;
+      padding: 15px 20px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(3px);
+    }
+
+    section ul li:hover {
+      transform: translateX(10px);
+      background: rgba(99, 103, 93, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      clear: both;
+      border-top: 3px solid #63675d;
+      backdrop-filter: blur(5px);
+    }
+
+    a {
+      color: #63675d;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    a:hover {
+      color: #f4f4f9;
+      background: rgba(99, 103, 93, 0.2);
+    }
+
+    section {
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #63675d rgba(0, 0, 0, 0.2);
+    }
+
+    section::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    section::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+
+    section::-webkit-scrollbar-thumb {
+      background: #63675d;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="srin.png" alt="Srinjoy Som" class="profile-photo">
+      <div class="header-content">
+        <h1>Srinjoy Som</h1>
+        <p>B.Tech - Mathematics and Computing | Minor in Data Science and AI</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="section-container">
+    <div class="section-headings">
+      <button onclick="showSection('education')" class="active">Education</button>
+      <button onclick="showSection('projects')">Projects</button>
+      <button onclick="showSection('skills')">Skills</button>
+      <button onclick="showSection('achievements')">Achievements</button>
+      <button onclick="showSection('extracurricular')">Extracurricular</button>
+      <button onclick="showSection('Courses')">Courses</button>
+    </div>
+
+    <div class="section-content">
+      <section id="education" class="active">
+        <h2>Education</h2>
+        <ul>
+          <li><strong>B.Tech Major:</strong> Indian Institute of Technology, Guwahati (CGPA: 9.33, 2022-Present)</li>
+          <li><strong>Senior Secondary:</strong> WBCHSE Board (97.2%, 2022)</li>
+          <li><strong>Secondary:</strong> WBBSE Board (97.0%, 2020)</li>
+        </ul>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+          <li><strong>CineSuggest:</strong> Implemented a movie suggestion system using Python and Streamlit (Jan 2024 - Jun 2024). <a href="https://github.com/surankan-de/DA221M">GitHub</a></li>
+          <li><strong>JetSetGo:</strong> Developed a flight booking website with login and database management (Jun 2024 - Jul 2024). <a href="https://github.com/srinjoysom11/airline">GitHub</a></li>
+          <li><strong>Bank Nifty Trading:</strong> Created a trading strategy using financial data, achieving 50% higher returns (Jan 2024 - Jun 2024). <a href="https://github.com/srinjoysom11/KRITI2024">GitHub</a></li>
+          <li><strong>Sliced Wasserstein Distance for Learning Gaussian Mixture Models:</strong> Used sliced Wasserstein Distance for increased robustness to initialization and capturing high dimensional data distribution more effectively than Expectation maximization (Oct 2024 - Dec 2024). <a href="https://github.com/srinjoysom11/Sliced-Wasserstein-Distance-for-Learning-Gaussian-Mixture-Models">GitHub</a></li>
+        </ul>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li><strong>Programming:</strong> Python, C/C++, JavaScript*, Haskell*</li>
+          <li><strong>Database Management:</strong> MySQL</li>
+          <li><strong>Tools/Frameworks:</strong> HTML/CSS, Node*, SageMath</li>
+          <li><strong>Data Analysis Tools:</strong> NumPy, Pandas, Matplotlib</li>
+        </ul>
+        <p>* Elementary proficiency</p>
+      </section>
+
+      <section id="achievements">
+        <h2>Achievements</h2>
+        <ul>
+          <li>Ranked 438 in JEE MAINS 2022</li>
+          <li>Ranked 1697 in JEE ADVANCED 2022</li>
+          <li>KVPY SX 2022, eligible for fellowship (Rank 1745)</li>
+          <li>Department Rank 1, Mathematics and Computing branch (after 4th sem)</li>
+          <li>Received JBNSTS Junior Scholarship 2020</li>
+          <li><strong>Codeforces:</strong> Ranked 1444 in Codeforces Round 954(Div3) (Username: frankfibb34(max rating 1551))</li>
+        </ul>
+      </section>
+
+      <section id="extracurricular">
+        <h2>Extracurricular Activities</h2>
+        <ul>
+          <li>Second place in MathGeek competition (ISI Kolkata, 2023)</li>
+          <li>Participated in Interhostel quizzes (2023-2024)</li>
+          <li>Third place in Trading Strategy PS (Kriti Interhostel, 2023-2024)</li>
+        </ul>
+      </section>
+      
+      <section id="Courses">
+        <h2>Courses taken</h2>
+        <ul>
+          <li><strong>Pure Maths:</strong> Real Analysis I, Real Analysis II, Complex Analysis, Linear Algebra, Ordinary Differential Equation, Partial Differential Equation, Probability, Number Theory and Modern Algebra</li>
+          <li><strong>Applied Maths:</strong> Financial Mathematics, Stochastic calculus for finance, Monte Carlo Simulation, Mathematical Foundation of Data Science</li>
+          <li><strong>Computer Science:</strong> Introduction to Computing, Data Structure and Algorithm, Design and Analysis of Algorithm, Computer Architecture and Organisation, Operating System, Computer Networks</li>
+          <li><strong>Data Science and Machine learning:</strong> Elements of Artificial Intelligence, Elements of Machine Learning</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <p>Contact: <a href="mailto:s.srinjoy@iitg.ac.in">s.srinjoy@iitg.ac.in</a> | <a href="mailto:srinjoysom11@gmail.com">srinjoysom11@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/srinjoysom11">github.com/srinjoysom11</a> | LinkedIn: <a href="https://www.linkedin.com/in/srinjoy-som-0108b3275/">linkedin.com/in/srinjoy-som-0108b3275</a></p>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      // Remove active class from all buttons and add to clicked button
+      const buttons = document.querySelectorAll('.section-headings button');
+      buttons.forEach(button => button.classList.remove('active'));
+      document.querySelector(`button[onclick="showSection('${id}')"]`).classList.add('active');
+
+      // Hide all sections and show the selected one
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+        section.style.transform = 'translateX(100%)';
+        section.style.opacity = '0';
+      });
+      
+      const selectedSection = document.getElementById(id);
+      selectedSection.classList.add('active');
+      selectedSection.style.transform = 'translateX(0)';
+      selectedSection.style.opacity = '1';
+    }
+
+    // Show education section by default
+    document.addEventListener('DOMContentLoaded', function() {
+      showSection('education');
+    });
+  </script>
+</body>
